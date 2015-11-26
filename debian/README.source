@@ -1,0 +1,9 @@
+This package is maintained from the upstream git repository located at
+https://github.com/01org/psm
+using Dep14 (http://dep.debian.net/deps/dep14/) layout/workflow.
+
+New versions should usually be built from the debian/master branch.
+There is a d/gbp.conf, so building with 'gbp buildpackage' is supported.
+The upstream branch is master.
+
+Roland Fehrenbacher

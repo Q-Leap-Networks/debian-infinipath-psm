@@ -1,0 +1,49 @@
+From: Roland Fehrenbacher <rf@q-leap.de>
+Date: Thu, 26 Nov 2015 12:26:43 +0100
+Subject: QL: Prevent format errors for older gcc (as in trusty)
+
+---
+ psm_context.c    | 2 +-
+ psm_ep_connect.c | 2 +-
+ psm_utils.c      | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/psm_context.c b/psm_context.c
+index 235bd1b..2728fab 100644
+--- a/psm_context.c
++++ b/psm_context.c
+@@ -381,7 +381,7 @@ psmi_context_check_status(const psmi_context_t *contexti)
+ 		else
+ 		    errmsg = "Hardware not found";
+ 
+-		psmi_handle_error(context->ep, err, errmsg);
++		psmi_handle_error(context->ep, err, errmsg, "%s");
+ 	    }
+ 	}
+     }
+diff --git a/psm_ep_connect.c b/psm_ep_connect.c
+index 4e5b0a9..98294e2 100644
+--- a/psm_ep_connect.c
++++ b/psm_ep_connect.c
+@@ -275,7 +275,7 @@ connect_fail:
+ 	    }
+ 	}
+ 	errbuf[sizeof errbuf - 1] = '\0';
+-	err = psmi_handle_error(ep, err, errbuf);
++	err = psmi_handle_error(ep, err, errbuf, "%s");
+     }
+ 
+ fail:
+diff --git a/psm_utils.c b/psm_utils.c
+index 895e7b5..c8651fe 100644
+--- a/psm_utils.c
++++ b/psm_utils.c
+@@ -1202,7 +1202,7 @@ psmi_coreopt_ctl(const void *core_obj, int optname,
+   
+  fail:
+   /* Unrecognized/unknown option */
+-  return psmi_handle_error(NULL, PSM_PARAM_ERR, err_string);
++  return psmi_handle_error(NULL, PSM_PARAM_ERR, err_string, "%s");
+ }
+ 
+ psm_error_t psmi_core_setopt(const void *core_obj, int optname, 

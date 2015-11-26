@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/buildflags.mk
+include /usr/share/dpkg/pkg-info.mk
+
+MAKE_OPTIONS := INSTALL_PREFIX=/usr libdir=/usr/lib/$(DEB_HOST_MULTIARCH) \
+  PSM_HAVE_SCIF=0 USE_PSM_UUID=0 arch=$(shell arch) 
+
+%:
+	dh $@ --parallel
+
+override_dh_auto_build:
+	$(MAKE) $(MAKE_OPTIONS)
+
+override_dh_strip:
+	dh_strip --dbg-package=libpsm-infinipath1-dbg
+
+override_dh_auto_install:
+	$(MAKE) install $(MAKE_OPTIONS) DESTDIR=$$PWD/debian/tmp
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+	$(MAKE) $(MAKE_OPTIONS) distclean
+	-rm -f include/linux-i386/linux-i386 include/linux-ppc/linux-ppc

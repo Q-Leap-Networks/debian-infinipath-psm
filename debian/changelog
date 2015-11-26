@@ -1,0 +1,5 @@
+infinipath-psm (3.3+7.g05f6f14.open-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #806524)
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Sat, 28 Nov 2015 13:49:53 +0100
