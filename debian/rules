@@ -3,6 +3,12 @@
 include /usr/share/dpkg/buildflags.mk
 include /usr/share/dpkg/pkg-info.mk
 
+DEBVENDOR := $(shell dpkg-vendor --query Vendor)
+ifeq ($(DEBVENDOR), Qlustar)
+    # Qlustar specific stuff
+    include /usr/share/ql-deb-utils/Makefile
+endif
+
 MAKE_OPTIONS := INSTALL_PREFIX=/usr libdir=/usr/lib/$(DEB_HOST_MULTIARCH) \
   PSM_HAVE_SCIF=0 USE_PSM_UUID=0 arch=$(shell arch) 
 
