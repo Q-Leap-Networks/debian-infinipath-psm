@@ -1,11 +1,11 @@
-infinipath-psm (3.3+7.g05f6f14.open-2) unstable; urgency=low
+infinipath-psm (3.3+7.g05f6f14.open-ql.2) unstable; urgency=low
 
   * Revert to xz compression
 
  -- Roland Fehrenbacher <rf@q-leap.de>  Tue, 01 Dec 2015 12:38:18 +0100
 
-infinipath-psm (3.3+7.g05f6f14.open-1) unstable; urgency=medium
+infinipath-psm (3.3+7.g05f6f14.open-ql.1) stable; urgency=medium
 
-  * Initial release. (Closes: #806524)
+  * Initial Qlustar release.
 
  -- Roland Fehrenbacher <rf@q-leap.de>  Sat, 28 Nov 2015 13:49:53 +0100
