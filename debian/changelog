@@ -1,3 +1,9 @@
+infinipath-psm (3.3+7.gec1d6d2-ql.2) stable; urgency=medium
+
+  * Add symbols file d/libpsm-infinipath1.symbols 
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Tue, 08 Dec 2015 13:20:59 +0000
+
 infinipath-psm (3.3+7.gec1d6d2-ql.1) stable; urgency=low
 
   * Upstream integrated our Debian patches
