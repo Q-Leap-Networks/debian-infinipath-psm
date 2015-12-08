@@ -1,0 +1,30 @@
+From: Roland Fehrenbacher <rf@q-leap.de>
+Date: Tue, 8 Dec 2015 13:47:35 +0100
+Subject: QL: Prevent memset error on older gcc (as e.g. gcc 4.8)
+
+Happens when compiling with -Wall -Werror.
+---
+ psm_diags.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/psm_diags.c b/psm_diags.c
+index 37c198e..3a5f516 100644
+--- a/psm_diags.c
++++ b/psm_diags.c
+@@ -32,6 +32,7 @@
+  * SOFTWARE.
+  */
+ 
++#include <assert.h>
+ #include "psm_user.h"
+ #include "psm_mq_internal.h"
+ 
+@@ -244,7 +245,7 @@ void *memcpy_check_one (memcpy_fn_t fn, void *dst, void *src, size_t n)
+ 	  ((uintptr_t) dst ^ (uintptr_t) src ^ (uintptr_t) n);
+   unsigned int state;
+   size_t i;
+-  psmi_assert_always(n > 0);
++  assert(n > 0);
+   memset(src, 0x55, n);
+   memset(dst, 0xaa, n);
+   srand(seed);
