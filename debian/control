@@ -24,6 +24,7 @@ Package: libpsm-infinipath1-dev
 Section: libdevel
 Architecture: amd64 i386
 Depends: ${misc:Depends}, libpsm-infinipath1 (= ${binary:Version})
+Conflicts: libion-dev
 Description: Development files for libpsm-infinipath1
  The PSM Messaging API, or PSM API, is Intel's (formerly QLogic's) low-level,
  user-level communication interface for the Truescale family of products. PSM

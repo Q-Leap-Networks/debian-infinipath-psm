@@ -1,3 +1,12 @@
+infinipath-psm (3.3+7.gec1d6d2-ql.3) stable; urgency=low
+
+  * d/control: Make libpsm-infinipath1-dev conflict with libion-dev
+  
+  * Bug fix: "libpsm-infinipath1-dev and libion-dev: error when trying to
+    install together", thanks to Ralf Treinen (Closes: #807300).
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Tue, 08 Dec 2015 15:36:24 +0100
+
 infinipath-psm (3.3+7.gec1d6d2-ql.2) stable; urgency=medium
 
   * Add symbols file d/libpsm-infinipath1.symbols 
